@@ -3,6 +3,8 @@
 ## はじめに
 これは東北大学の量子アニーリングワークショップ [**Quantum annealing for you**](https://altema.is.tohoku.ac.jp/QA4U/index.html#section2) の**非公式な**リポジトリです. ここでは, 講義に利用したコードを動くdocker環境を提供することを目的としています. 
 
+この説明文は初心者対象なので, わかっている人は適度に読み飛ばすか, 気になる部分を指摘していただけると幸いです. 
+
 ## 準備
 
 gitは使えるものとします. 
@@ -19,20 +21,24 @@ Windowsユーザーの方だけ少しだけ分岐が生じます.
 #### Windowsの人
 - インストール時に"Install required Windows components for WSL 2" と "Add shortcut to desktop
 " にチェックを入れてインストールを行う. 
-- インストール時に"WSL 2 installation is incomplete." というダイアログが出たら, 消さずに以下の手順を実行してください. 
+- インストール中に"WSL 2 installation is incomplete." というダイアログが出たら, 消さずに以下の手順を実行してください. 
   - Linux カーネル更新プログラム パッケージをダウンロードする必要があります. [ここ](https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package)を参照して「x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ」をダウンロードし, 指示に従ってインストールを行う. 
+- ダイアログを消し, dockerをリスタートする
 - PowerShellを起動する
 
 ## 使い方
 
 ### コンテナを利用してjupyterを立ち上げる
 
+- このリポジトリを皆さんのPCに持ってきたら, まずはコマンドラインでそのディレクトリにいく. 
+  - ```docker-compose.yml```というファイルがある階層まで辿り着こう
+
 #### コンテナの起動
 - 起動コマンド ```docker-compose up -d```
   - ```docker-compose up --build -d``` のように ```--build``` オプションをつけるとイメージのビルドからやり直せる
     - Dockerfileを編集したあとはイメージのビルドを再度行わないと, 変更がコンテナに反映されない. 
     -  ビルドからやり直すので(初回ほどではないとはいえ)ちょっと時間がかかる
-  - 設定に手を加えていない場合はを```http://localhost:8888から```ブラウザでjupyterLabが起動する
+  - 設定に手を加えていない場合は http://127.0.0.1:8888 でブラウザでjupyterLabが起動する
   - ここまで来たらあとは通常のjupyterの使い方と同じです. Enjoy!
 
 #### コンテナの停止
